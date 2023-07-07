@@ -2,14 +2,21 @@ import mongoose from "mongoose";
 
 
 const registerationSchema = new mongoose.Schema({
+    teamname: {
+        type: String,
+        required: [true, "Email is required!"]
+    },
     email: {
         type: String,
         unique: [true, "Email already exists!"],
         required: [true, "Email is required!"]
     },
-    username: {
+    phonenumber: {
+        type: Number,
+        required: [true, "Email is required!"]
+    },
+    couponcode: {
         type: String,
-        required: [true, 'Username is required!'],
     },
     image: {
         type: String,
