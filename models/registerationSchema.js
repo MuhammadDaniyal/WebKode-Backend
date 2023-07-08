@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 const registerationSchema = new mongoose.Schema({
     teamname: {
         type: String,
-        required: [true, "Email is required!"]
+        required: [true, "Team Name is required!"]
     },
     email: {
         type: String,
@@ -13,7 +13,7 @@ const registerationSchema = new mongoose.Schema({
     },
     phonenumber: {
         type: Number,
-        required: [true, "Email is required!"]
+        required: [true, "Number is required!"]
     },
     couponcode: {
         type: String,
