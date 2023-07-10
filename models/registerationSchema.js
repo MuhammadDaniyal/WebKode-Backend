@@ -25,7 +25,7 @@ const registerationSchema = new mongoose.Schema({
     },
     memberoneuni: {
         type: String,
-        required: [true, "Decipline & University is required!"]
+        required: [true, "Decipline - University is required!"]
     },
     membertwoname: {
         type: String,

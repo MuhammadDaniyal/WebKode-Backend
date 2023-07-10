@@ -1,8 +1,9 @@
 
 const Registration = require('../models/registerationSchema')
+const generateMail = require('../helper/generateMail')
 
 async function teamRegisteration(req, res) {
-    const { email } = req.body
+    const { email, teamname } = req.body
     try {
         // check team member already exists email
         const teamExist = await Registration.findOne({ email })
@@ -12,7 +13,12 @@ async function teamRegisteration(req, res) {
             // create new user
             const regTeamDoc = new Registration(req.body)
             regTeamDoc.save()
-                .then(result => res.status(201).send({ msg: "Team Register Successfully", result }))
+                .then(result => {
+                    res.status(201).send({ msg: "Team Register Successfully", result })
+                    if (result) {
+                        generateMail(teamname, email)
+                    }
+                })
                 .catch(error => res.status(400).send({ msg: "Team not Registered", error }))
         }
     } catch (error) {

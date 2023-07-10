@@ -28,6 +28,9 @@ const teamSchema = new mongoose.Schema({
     shortbio: {
         type: String,
     },
+    profileImage: {
+        type: Buffer
+    },
 })
 
 const Team = mongoose.models.Team || mongoose.model("Team", teamSchema)
