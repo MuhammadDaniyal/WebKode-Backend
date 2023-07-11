@@ -5,6 +5,9 @@ const EMAIL = "koderzklub@gmail.com";
 const PASSWORD = 'wijufkwhayfaakdb'
 
 let nodeConfig = {
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: true, // true for 465, false for other ports
     service : 'gmail',
         auth : {
             user: EMAIL,
