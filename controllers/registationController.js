@@ -6,10 +6,15 @@ async function teamRegisteration(req, res) {
     const { email, teamname } = req.body
     try {
         // check team member already exists email
-        const teamExist = await Registration.findOne({ email })
-        if (teamExist) {
-            return res.status(400).json({error: 'Team already registered' })
-        } else {
+        const emailExist = await Registration.findOne({ email })
+        const teamExist = await Registration.findOne({ teamname })
+        if (emailExist) {
+            return res.status(400).json({error: 'Team is  already registered on this email' })
+        } 
+        else if(teamExist){
+            return res.status(400).json({error: 'Team Name is  already exist' })
+        }
+        else {
             // create new user
             const regTeamDoc = new Registration(req.body)
             regTeamDoc.save()
@@ -22,8 +27,8 @@ async function teamRegisteration(req, res) {
                 .catch(error => res.status(400).send({ msg: "Team not Registered", error }))
         }
     } catch (error) {
-        // return res.status(500).json({ msg: "Internal Server Error: ", error })
-        console.log(error)
+        return res.status(500).json({ msg: "Internal Server Error: ", error })
+        // console.log(error)
     }
 }
 
