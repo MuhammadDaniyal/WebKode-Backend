@@ -2,7 +2,7 @@ const nodemailer = require("nodemailer")
 const Mailgen = require("mailgen")
 
 const EMAIL = "koderzklub@gmail.com";
-const PASSWORD = 'wijufkwhayfaakdb'
+const PASSWORD = 'wijufkwhayfaakdb';
 
 let nodeConfig = {
     host: "smtp.gmail.com",
@@ -29,7 +29,7 @@ async function generateMail(teamName,toMail) {
     var response  = {
         body: {
             name: teamName,
-            intro: 'Welcome to Mailgen! We\'re very excited to have you on board.',
+            intro: 'Welcome to Koderz Klub! We\'re very excited to have you in this fantastic event.',
             outro: 'Need help, or have questions? Just reply to this email, we\'d love to help.'
         }
     };
