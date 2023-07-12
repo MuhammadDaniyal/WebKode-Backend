@@ -4,7 +4,7 @@ const Team = require('../models/teamSchema')
 async function registerMember(req, res) {
     try {
         const { firstname, lastname, email, phone, university, discipline, shortbio } = req.body
-        console.log(req.body.profileImage)
+        // console.log(req.body.profileImage)
         const imageFile = req.body.profileImage;
         // Convert image file to Base64 string
         // const imageBase64 = imageFile.buffer.toString('base64');
